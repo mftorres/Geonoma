@@ -20,12 +20,12 @@ module load BWA/0.7.17
 COMP_DIR='~/pfs';
 DATA_DIR='/proj/nobackup/$PROJECT_ID';
 
-SAMPLE=$(ls $DATA_DIR/trimmed/P13454_10${SLURM_ARRAY_TASK_ID}_trimmed.1.fastq.gz | sed -r 's/_trimmed.1.fastq.gz//g');
+SAMPLE=$(ls $DATA_DIR/trimmed/P13454_10${SLURM_ARRAY_TASK_ID}_trimmed.1.fastq | sed -r 's/_trimmed.1.fastq//g');
 echo $SAMPLE;
 
 ### map reads to reference to create sam/bam
 
-bwa mem -t 20 $DATA_DIR/reference/GCF_000442705.1_EG5_genomic.fna ${SAMPLE}_trimmed.1.fastq.gz ${SAMPLE}_trimmed.2.fastq.gz -o "${SAMPLE}".sam $2> bwa_markdup_%J.err;
+bwa mem -t 20 $DATA_DIR/reference/GCF_000442705.1_EG5_genomic.fna ${SAMPLE}_trimmed.1.fastq ${SAMPLE}_trimmed.2.fastq -o "${SAMPLE}".sam $2> bwa_markdup_%J.err;
 
 samtools view -bS -T $DATA_DIR/reference/GCF_000442705.1_EG5_genomic.fna ${SAMPLE}.sam > "${SAMPLE}".bam;
 rm ${SAMPLE}.sam;
