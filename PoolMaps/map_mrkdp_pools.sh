@@ -1,8 +1,8 @@
 REF='$HOME/pools/k55hyb_GUR2.fasta';
 FILE='P13454_101_trimmfastp_paired.1.fastq.gz';
 
-nohup pigz -dc "${FILE%%.*}".1.fastq.gz -p 8 > "${FILE%%.*}".1.fastq &
-nohup pigz -dc "${FILE%%.*}".2.fastq.gz -p 8 > "${FILE%%.*}".2.fastq &
+#nohup pigz -dc "${FILE%%.*}".1.fastq.gz -p 8 > "${FILE%%.*}".1.fastq &
+#nohup pigz -dc "${FILE%%.*}".2.fastq.gz -p 8 > "${FILE%%.*}".2.fastq &
 
 #java -jar $EBROOTPICARD/picard.jar CreateSequenceDictionary R=$HYB3 O=$HYB3
 bwa index $REF
