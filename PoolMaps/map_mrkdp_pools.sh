@@ -9,7 +9,7 @@ bwa index $REF
 
 bwa mem -t 8 $REF <(pigz -dc "${FILE%%.*}".1.fastq.gz -p 8) <(pigz -dc "${FILE%%.*}".2.fastq.gz -p 8) | samtools view -@ 8 -q 20 -bSh -o k55hybGUR2_"${FILE%%.*}".bam -
 
-samtools sort -@ 14 -o hyb3_"${FILE%%.*}".bam.srtd.bam hyb3_"${FILE%%.*}".bam;
+samtools sort -@ 12 -o k55hybGUR2_"${FILE%%.*}".bam.srtd.bam k55hybGUR2_"${FILE%%.*}".bam;
 
 # 2.2. Add group information to the BAM files
 java -jar $EBROOTPICARD/picard.jar AddOrReplaceReadGroups -I hyb3_"${FILE%%.*}".bam.srtd.bam \
