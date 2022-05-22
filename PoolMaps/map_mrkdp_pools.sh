@@ -12,9 +12,16 @@ bwa mem -t 8 $REF <(pigz -dc "${FILE%%.*}".1.fastq.gz -p 8) <(pigz -dc "${FILE%%
 samtools sort -@ 12 -o k55hybGUR2_"${FILE%%.*}".bam.srtd.bam k55hybGUR2_"${FILE%%.*}".bam;
 
 # 2.2. Add group information to the BAM files
-java -jar $EBROOTPICARD/picard.jar AddOrReplaceReadGroups -I hyb3_"${FILE%%.*}".bam.srtd.bam \
- -O hyb3_"${FILE%%.*}".srtd.wgrps.bam -RGID 4 -RGLB lib1 -RGPL illumina \
- -RGPU unit1 -RGSM $GROUP --TMP_DIR ./scratch $2> "$GROUP"_groupfix.out;
+# conda create -n openjdk openjdk
+# conda activate openjdk
+# git clone https://github.com/broadinstitute/picard.git
+# cd picard
+# ./gradlew shadowJar
+PICARD='build/libs'
+java -jar $PICARD/picard.jar AddOrReplaceReadGroups -I k55hybGUR2_"${FILE%%.*}".bam.srtd.bam \
+ -O k55hybGUR2_"${FILE%%.*}".srtd.wgrps.bam -RGID 1 -RGLB lib1 -RGPL illumina \
+ -RGPU unit1 -RGSM P13454_101; 
+
 
 echo "fixing groups done with at `date`"
 # 2.3. Sort BAMs by name
