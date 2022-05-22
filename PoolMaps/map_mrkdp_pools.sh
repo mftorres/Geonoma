@@ -25,7 +25,7 @@ java -jar $PICARD/picard.jar AddOrReplaceReadGroups -I k55hybGUR2_"${FILE%%.*}".
 
 echo "fixing groups done with at `date`"
 # 2.3. Sort BAMs by name
-samtools sort -@ 14 -n -o hyb3_"${FILE%%.*}".srtdname.wgrps.bam hyb3_"${FILE%%.*}".srtd.wgrps.bam;
+samtools sort -@ 14 -n -o k55hybGUR2_"${FILE%%.*}".srtdname.wgrps.bam k55hybGUR2_"${FILE%%.*}".srtd.wgrps.bam;
 
 echo "sorting by name done with at `date`"
 #rm hyb3_"${FILE%%.*}".bam
