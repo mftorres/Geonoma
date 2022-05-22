@@ -28,15 +28,15 @@ echo "fixing groups done with at `date`"
 samtools sort -@ 14 -n -o k55hybGUR2_"${FILE%%.*}".srtdname.wgrps.bam k55hybGUR2_"${FILE%%.*}".srtd.wgrps.bam;
 
 echo "sorting by name done with at `date`"
-#rm hyb3_"${FILE%%.*}".bam
-rm hyb3_"${FILE%%.*}".bam.srtd.bam
+#rm k55hybGUR2_"${FILE%%.*}".bam
+rm k55hybGUR2_"${FILE%%.*}".bam.srtd.bam
 echo "removed .bam.srtd.bam at `date`"
 
 # 2.4. Fix read mate information
-samtools fixmate -@ 14 -m hyb3_"${FILE%%.*}".srtdname.wgrps.bam hyb3_"${FILE%%.*}".srtdname.wgrps.fxmt.bam;
+samtools fixmate -@ 14 -m k55hybGUR2_"${FILE%%.*}".srtdname.wgrps.bam k55hybGUR2_"${FILE%%.*}".srtdname.wgrps.fxmt.bam;
 
 echo "fixmate done with at `date`"
-rm hyb3_"${FILE%%.*}".srtd.wgrps.bam
+rm k55hybGUR2_"${FILE%%.*}".srtd.wgrps.bam
 echo "removed .srtd.wgrps.bam at `date`"
 
 # 2.5. Sort BAMs by coordinate
