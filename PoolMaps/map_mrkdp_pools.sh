@@ -51,8 +51,8 @@ samtools markdup -@ 14 "${FILE%%.*}".wg.srtcrd.fix.bam "${FILE%%.*}".wg.srtcrd.f
 samtools index -@ 14 "${FILE%%.*}".wg.srtcrd.fix.mkdp.bam;
 
 
-samtools stats -@ 14 -c 0,2000,1 -i 10000 -r $HYB3 "${FILE%%.*}".wg.srtcrd.fix.mkdp.bam > "${FILE%%.*}".wg.srtcrd.fix.mkdp.bam.ALLstast
+samtools stats -@ 14 -c 0,2000,1 -i 10000 -r $REF "${FILE%%.*}".wg.srtcrd.fix.mkdp.bam > "${FILE%%.*}".wg.srtcrd.fix.mkdp.bam.ALLstast
 
-samtools stats -@ 14 -c 0,2000,1 -i 10000 -r $HYB3 -d "${FILE%%.*}".wg.srtcrd.fix.mkdp.bam > "${FILE%%.*}".wg.srtcrd.fix.mkdp.bam.nodupstast
+samtools stats -@ 14 -c 0,2000,1 -i 10000 -r $REF -d "${FILE%%.*}".wg.srtcrd.fix.mkdp.bam > "${FILE%%.*}".wg.srtcrd.fix.mkdp.bam.nodupstast
 
 echo "final, final, no va mas!"
