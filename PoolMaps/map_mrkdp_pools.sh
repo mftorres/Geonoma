@@ -40,7 +40,7 @@ rm k55hybGUR2_"${FILE%%.*}".srtd.wgrps.bam
 echo "removed .srtd.wgrps.bam at `date`"
 
 # 2.5. Sort BAMs by coordinate
-samtools sort -@ 14 -o "${FILE%%.*}".wg.srtcrd.fix.bam hyb3_"${FILE%%.*}".srtdname.wgrps.fxmt.bam;
+samtools sort -@ 14 -o "${FILE%%.*}".wg.srtcrd.fix.bam k55hybGUR2_"${FILE%%.*}".srtdname.wgrps.fxmt.bam;
 
 echo "sort by coordinates done with at `date`"
 rm hyb3_"${FILE%%.*}".srtdname.wgrps.bam
