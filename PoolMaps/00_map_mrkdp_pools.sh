@@ -53,6 +53,4 @@ samtools index -@ 14 "${FILE%%.*}".wg.srtcrd.fix.mkdp.bam;
 
 samtools stats -@ 14 -c 0,2000,1 -i 10000 -r $REF "${FILE%%.*}".wg.srtcrd.fix.mkdp.bam > "${FILE%%.*}".wg.srtcrd.fix.mkdp.bam.ALLstast
 
-samtools stats -@ 14 -c 0,2000,1 -i 10000 -r $REF -d "${FILE%%.*}".wg.srtcrd.fix.mkdp.bam > "${FILE%%.*}".wg.srtcrd.fix.mkdp.bam.nodupstast
-
 echo "final, final, no va mas!"
